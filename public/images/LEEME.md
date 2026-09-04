@@ -1,9 +1,6 @@
 # Fotos
 
-## Ya cargadas
-
-Las 5 fotos de producto que mandaste ya están acá y cargadas en
-`src/data/products.js`:
+## Ya cargadas (10 productos)
 
 ```
 producto-1-gege-bear.jpg
@@ -11,6 +8,11 @@ producto-2-last-touch-pink21.jpg
 producto-3-lip-combo-dulce-de-leche.jpg
 producto-4-tei-bear-lip-balm.jpg
 producto-5-style-tei-brow.jpg
+producto-6-iman-noble-lip-stick.jpg
+producto-7-pink-fix-eyebrow-gel.jpg
+producto-8-cepillo-paddle.jpg
+producto-9-labial-liquido-mate.jpg
+producto-10-banana-loose-powder.jpg
 ```
 
 ## Todavía falta
@@ -38,5 +40,16 @@ puntuales (no genéricos) donde el envase no aclaraba algo:
 - **Bálsamo Labial Osito (TEI)**: el envase no trae un nombre propio
   (solo la marca TEI), y se ven 3 unidades que podrían ser 3
   sabores/tonos sin etiqueta que los distinga.
+- **Lápiz Labial Iman of Noble**: se ven 2 estuches (blanco/menta y
+  azul) sin nombre de tono legible — los variantes están puestos por
+  color de tapa, a confirmar.
+- **Pink Fix Eyebrow Gel**: se ven 2 tamaños (grande y mini), no está
+  claro si es el mismo producto en 2 presentaciones.
+- **Labial Líquido Mate**: 3 tonos sin nombre legible — puestos como
+  "Vino", "Ciruela" y "Nude" por el color del líquido, a confirmar.
+- **Cepillo Paddle**: no tiene marca ni nombre visible; se agregó una
+  categoría nueva "Accesorios" porque no es maquillaje ni skincare — si
+  preferís otro nombre de categoría, es un cambio de una línea en
+  `CATEGORIAS` dentro de `src/data/products.js`.
 
 Si tenés esos datos, pasámelos y los cargo.

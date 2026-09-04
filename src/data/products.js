@@ -15,7 +15,7 @@
    ----------------------------------------------------------------
    ⚠️  ESTADO ACTUAL
    ----------------------------------------------------------------
-   Se cargaron los 5 productos reales a partir de las fotos recibidas
+   Se cargaron los 10 productos reales a partir de las fotos recibidas
    (nombre, marca y descripción tal como se leen en cada foto/envase).
    Todavía faltan, porque no llegaron adjuntas a ninguna sesión:
    - El logo de la marca (public/images/LEEME.md) — el sitio muestra
@@ -95,6 +95,11 @@ export const CATEGORIAS = {
   skincare: {
     nombre: "Skincare",
   },
+  // Sumada para el cepillo paddle: no es maquillaje ni skincare, pero es
+  // un producto real de la clienta — ver nota en PRODUCTOS.accesorios.
+  accesorios: {
+    nombre: "Accesorios",
+  },
 };
 
 
@@ -154,6 +159,62 @@ export const PRODUCTOS = {
       galeria: [],
       variantes: [],
     },
+    {
+      nombre: "Lápiz Labial Iman of Noble",
+      categoria: "maquillaje",
+      subcategoria: "Labios",
+      descripcion: "Lápiz labial waterproof de Iman of Noble: hidratante, larga duración, disimula líneas de expresión y repara los labios. 6 g.",
+      modoDeUso: "",
+      imagen: "/images/producto-6-iman-noble-lip-stick.jpg",
+      galeria: [],
+      // TODO: confirmar con la clienta — no se lee un nombre de tono en el
+      // envase, solo el color de la tapa. Nombres de variante puestos acá
+      // por el color de la tapa (blanco/menta y azul), a confirmar.
+      variantes: [
+        { nombre: "Blanco/Menta" },
+        { nombre: "Azul" },
+      ],
+    },
+    {
+      nombre: "Pink Fix Eyebrow Gel",
+      categoria: "maquillaje",
+      subcategoria: "Cejas",
+      descripcion: "Gel para cejas PINK21, línea Pink Fix.",
+      modoDeUso: "",
+      imagen: "/images/producto-7-pink-fix-eyebrow-gel.jpg",
+      galeria: [],
+      // TODO: confirmar con la clienta — se ven 2 tamaños (grande y mini);
+      // no está claro si son el mismo producto en dos presentaciones o dos
+      // productos distintos.
+      variantes: [],
+    },
+    {
+      nombre: "Labial Líquido Mate",
+      categoria: "maquillaje",
+      subcategoria: "Labios",
+      descripcion: "Labial líquido mate con tapa acolchada dorada.",
+      modoDeUso: "",
+      imagen: "/images/producto-9-labial-liquido-mate.jpg",
+      galeria: [],
+      // TODO: confirmar con la clienta — no se leen nombres de tono en el
+      // envase. Nombres de variante puestos acá por el color del líquido
+      // (vino, ciruela, nude), a confirmar.
+      variantes: [
+        { nombre: "Vino" },
+        { nombre: "Ciruela" },
+        { nombre: "Nude" },
+      ],
+    },
+    {
+      nombre: "Banana Loose Powder",
+      categoria: "maquillaje",
+      subcategoria: "Rostro",
+      descripcion: "Polvo suelto (loose powder) PINK21, tono banana.",
+      modoDeUso: "",
+      imagen: "/images/producto-10-banana-loose-powder.jpg",
+      galeria: [],
+      variantes: [],
+    },
   ],
 
   skincare: [
@@ -172,6 +233,25 @@ export const PRODUCTOS = {
       // TODO: confirmar con la clienta — la foto muestra 3 unidades que
       // podrían ser 3 sabores/tonos distintos; el envase no trae una
       // etiqueta que los distinga. Si son variantes, cargarlas acá.
+      variantes: [],
+    },
+  ],
+
+  // TODO: confirmar con la clienta — el cepillo no es maquillaje ni
+  // skincare. Se agregó esta categoría "Accesorios" para no forzarlo en
+  // ninguna de las otras dos; si la clienta prefiere otro nombre de
+  // categoría, es un cambio de una línea acá arriba en CATEGORIAS.
+  accesorios: [
+    {
+      // TODO: confirmar con la clienta — no hay marca ni nombre visible en
+      // el producto, es una descripción genérica.
+      nombre: "Cepillo Paddle",
+      categoria: "accesorios",
+      subcategoria: "Cabello",
+      descripcion: "Cepillo paddle con cerdas de bolita y mango con orificio para colgar.",
+      modoDeUso: "",
+      imagen: "/images/producto-8-cepillo-paddle.jpg",
+      galeria: [],
       variantes: [],
     },
   ],
