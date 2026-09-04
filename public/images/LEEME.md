@@ -1,27 +1,42 @@
-# Fotos que faltan subir acá
+# Fotos
 
-Las 4 fotos de producto, la foto del logo y la captura de Instagram con la
-paleta de colores **no llegaron adjuntas a esta sesión** — por eso el sitio
-está armado con datos de relleno marcados `// TODO: confirmar con la
-clienta`. Ver la nota completa en la respuesta de esta sesión y en el
-`README.md` de la raíz del proyecto.
+## Ya cargadas
 
-Cuando tengas las fotos reales, subilas acá con estos nombres exactos (o
-cambiá las rutas en `src/data/products.js` si preferís otros nombres):
+Las 5 fotos de producto que mandaste ya están acá y cargadas en
+`src/data/products.js`:
 
 ```
-public/images/logo-darling-amely.png   → logo / isotipo de la marca
-public/images/producto-1.jpg           → foto 1 (con nombre, categoría, descripción)
-public/images/producto-2.jpg           → foto 2
-public/images/producto-3.jpg           → foto 3
-public/images/producto-4.jpg           → foto 4
+producto-1-gege-bear.jpg
+producto-2-last-touch-pink21.jpg
+producto-3-lip-combo-dulce-de-leche.jpg
+producto-4-tei-bear-lip-balm.jpg
+producto-5-style-tei-brow.jpg
 ```
 
-Si algún producto tiene más de una foto (por ejemplo, distintos tonos),
-agregá archivos como `producto-1-tono-nude.jpg` y enlazalos desde el campo
-`imagen` de cada variante en `src/data/products.js`.
+## Todavía falta
 
-Ni bien subas las fotos reales, avisá para reemplazar los `// TODO` de
-`src/data/products.js` (nombre, categoría, descripción y variantes) por el
-texto tal cual aparece en cada foto, y los colores de
-`src/styles/index.css` por los extraídos de la captura de Instagram.
+- `logo-darling-amely.png` — el logo/isotipo de la marca. Mientras no
+  esté, el sitio muestra el nombre "Darling Amely" en texto estilizado
+  en vez del logo (fallback automático — con solo subir el archivo con
+  ese nombre exacto, aparece solo, sin tocar código).
+- La captura del perfil de Instagram con la paleta de colores de la
+  marca, para reemplazar los colores provisorios de
+  `src/styles/index.css` (están marcados con un TODO grande al
+  principio del archivo).
+- El usuario de Instagram, para cargarlo en `CONFIG.instagram` de
+  `src/data/products.js` y que aparezca el botón en el footer.
+
+## Datos puntuales a confirmar
+
+`src/data/products.js` tiene un par de `TODO: confirmar con la clienta`
+puntuales (no genéricos) donde el envase no aclaraba algo:
+
+- **Gege Bear**: no se lee en el envase qué tipo de producto es
+  (¿polvo? ¿rubor? ¿iluminador?), solo la marca y "Lucky".
+- **Last Touch Waterproof Powder**: se ven 2 unidades del compacto —
+  no está claro si son 2 tonos distintos o la misma unidad.
+- **Bálsamo Labial Osito (TEI)**: el envase no trae un nombre propio
+  (solo la marca TEI), y se ven 3 unidades que podrían ser 3
+  sabores/tonos sin etiqueta que los distinga.
+
+Si tenés esos datos, pasámelos y los cargo.

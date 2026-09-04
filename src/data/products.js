@@ -13,24 +13,23 @@
    siguiente.
 
    ----------------------------------------------------------------
-   ⚠️  ESTADO ACTUAL: DATOS DE RELLENO (demo con 4 productos)
+   ⚠️  ESTADO ACTUAL
    ----------------------------------------------------------------
-   Las 4 fotos de producto, la foto del logo y la captura de Instagram
-   con la paleta de colores de la marca NO llegaron adjuntas a la sesión
-   en la que se armó este sitio. Para no inventar nombres, descripciones,
-   tonos ni colores que no estaban confirmados, cada dato de producto que
-   debía salir de una foto quedó marcado "TODO: confirmar con la clienta".
+   Se cargaron los 5 productos reales a partir de las fotos recibidas
+   (nombre, marca y descripción tal como se leen en cada foto/envase).
+   Todavía faltan, porque no llegaron adjuntas a ninguna sesión:
+   - El logo de la marca (public/images/LEEME.md) — el sitio muestra
+     un wordmark de texto mientras tanto.
+   - La captura de Instagram con la paleta de colores real — la paleta
+     de src/styles/index.css sigue siendo provisoria (ver el comentario
+     al principio de ese archivo).
+   - El usuario de Instagram (CONFIG.instagram, más abajo).
 
-   Para completar el sitio con los datos reales:
-   1. Subí las 4 fotos + el logo a public/images/ (ver public/images/LEEME.md).
-   2. Reemplazá cada "TODO: confirmar con la clienta" de PRODUCTOS acá
-      abajo por el texto tal cual aparece en la foto correspondiente
-      (nombre, categoría, descripción, variantes de tono/tamaño).
-   3. Actualizá la paleta de colores en src/styles/index.css con los
-      colores reales extraídos de la captura de Instagram.
+   Quedan marcados "TODO: confirmar con la clienta" un puñado de datos
+   puntuales que no se leían con claridad en la foto (ver cada producto).
 
    ----------------------------------------------------------------
-   CÓMO AGREGAR UN PRODUCTO NUEVO (una vez cargados los 4 reales)
+   CÓMO AGREGAR UN PRODUCTO NUEVO
    ----------------------------------------------------------------
    1. Copiá un producto que ya esté cargado (desde la { hasta la }, con
       la coma al final) y pegalo antes del corchete de cierre "]" de la
@@ -86,9 +85,8 @@ export const CONFIG = {
 
 /* ----------------------------------------------------------------
    2. CATEGORÍAS
-   Definidas a partir del rubro dado en el prompt (make up y skincare).
-   TODO: confirmar con la clienta — ajustar nombres/agregar subcategorías
-   según lo que realmente digan las 4 fotos de producto.
+   Definidas a partir del rubro dado en el prompt (make up y skincare)
+   y confirmadas con los 5 productos reales.
    ---------------------------------------------------------------- */
 export const CATEGORIAS = {
   maquillaje: {
@@ -101,60 +99,80 @@ export const CATEGORIAS = {
 
 
 /* ----------------------------------------------------------------
-   3. CATÁLOGO DE PRODUCTOS (demo con 4 productos reales)
+   3. CATÁLOGO DE PRODUCTOS (5 productos reales)
    Organizado por categoría. Cada categoría es un array de productos.
-
-   Todos los campos de contenido de estos 4 productos están marcados
-   TODO porque las fotos con nombre/categoría/descripción/tonos no
-   llegaron adjuntas a esta sesión — ver la nota al principio del
-   archivo. La estructura (nombre, categoria, subcategoria, descripcion,
-   imagen, variantes) es la que pidió el prompt original.
    ---------------------------------------------------------------- */
 export const PRODUCTOS = {
 
   maquillaje: [
     {
-      nombre: "TODO: confirmar con la clienta (nombre — foto 1)",
+      // Único producto de los 5 con texto de marca ya escrito sobre la
+      // foto ("Lip combo Dulce de leche"), tal cual pedía el prompt.
+      nombre: "Lip Combo Dulce de Leche",
       categoria: "maquillaje",
-      subcategoria: "", // TODO: confirmar con la clienta
-      descripcion: "TODO: confirmar con la clienta — pegar acá la descripción de 2-3 líneas tal cual figura en la foto 1.",
-      modoDeUso: "", // TODO: confirmar con la clienta, si la foto lo indica
-      imagen: "/images/producto-1.jpg",
+      subcategoria: "Labios",
+      descripcion: "Combo de labios PINK21: labial líquido The Lip Glaze + delineador Lip Liner Matte (tono 07), en tono dulce de leche.",
+      modoDeUso: "",
+      imagen: "/images/producto-3-lip-combo-dulce-de-leche.jpg",
       galeria: [],
-      variantes: [], // TODO: confirmar con la clienta — cargar tonos/tamaños si la foto 1 los muestra
+      variantes: [],
     },
     {
-      nombre: "TODO: confirmar con la clienta (nombre — foto 2)",
+      nombre: "Last Touch Waterproof Powder",
       categoria: "maquillaje",
-      subcategoria: "", // TODO: confirmar con la clienta
-      descripcion: "TODO: confirmar con la clienta — pegar acá la descripción de 2-3 líneas tal cual figura en la foto 2.",
-      modoDeUso: "", // TODO: confirmar con la clienta, si la foto lo indica
-      imagen: "/images/producto-2.jpg",
+      subcategoria: "Rostro",
+      descripcion: "Polvo compacto matificante resistente al agua, línea Last Touch de PINK21.",
+      modoDeUso: "",
+      imagen: "/images/producto-2-last-touch-pink21.jpg",
       galeria: [],
-      variantes: [], // TODO: confirmar con la clienta — cargar tonos/tamaños si la foto 2 los muestra
+      // TODO: confirmar con la clienta — en la foto se ven 2 unidades del
+      // compacto con el polvo levemente bitono; no se leen nombres de tono
+      // en el envase. Si son 2 tonos distintos, cargarlos acá como
+      // variantes (ej. { nombre: "Claro", imagen: "..." }).
+      variantes: [],
+    },
+    {
+      // TODO: confirmar con la clienta — en el envase solo se lee "Gege
+      // Bear" y "Lucky"; no hay ningún texto que diga qué tipo de producto
+      // es (polvo, rubor, iluminador, bálsamo). Confirmar antes de publicar.
+      nombre: "Gege Bear",
+      categoria: "maquillaje",
+      subcategoria: "Rostro",
+      descripcion: "Compacto redondo ilustrado de la línea Gege Bear (osito, fresa, corazón, huellitas) con el detalle \"Lucky\".",
+      modoDeUso: "",
+      imagen: "/images/producto-1-gege-bear.jpg",
+      galeria: [],
+      variantes: [],
+    },
+    {
+      nombre: "Style Brow",
+      categoria: "maquillaje",
+      subcategoria: "Cejas",
+      descripcion: "Estuche para peinar cejas de la línea Style Brow de TEI, con cepillo angulado incluido. Presentación edición sandía.",
+      modoDeUso: "",
+      imagen: "/images/producto-5-style-tei-brow.jpg",
+      galeria: [],
+      variantes: [],
     },
   ],
 
   skincare: [
     {
-      nombre: "TODO: confirmar con la clienta (nombre — foto 3)",
+      // TODO: confirmar con la clienta — el envase no trae un nombre
+      // comercial propio, solo la marca TEI + ingredientes (Candelilla Wax,
+      // Petrolatum) que indican que es un bálsamo labial. Confirmar si
+      // tiene un nombre/sabor específico.
+      nombre: "Bálsamo Labial Osito (TEI)",
       categoria: "skincare",
-      subcategoria: "", // TODO: confirmar con la clienta
-      descripcion: "TODO: confirmar con la clienta — pegar acá la descripción de 2-3 líneas tal cual figura en la foto 3.",
-      modoDeUso: "", // TODO: confirmar con la clienta — modo de uso, si la foto lo indica
-      imagen: "/images/producto-3.jpg",
+      subcategoria: "Labios",
+      descripcion: "Bálsamo labial en envase con forma de osito, marca TEI.",
+      modoDeUso: "",
+      imagen: "/images/producto-4-tei-bear-lip-balm.jpg",
       galeria: [],
-      variantes: [], // TODO: confirmar con la clienta — cargar tamaños si la foto 3 los muestra
-    },
-    {
-      nombre: "TODO: confirmar con la clienta (nombre — foto 4)",
-      categoria: "skincare",
-      subcategoria: "", // TODO: confirmar con la clienta
-      descripcion: "TODO: confirmar con la clienta — pegar acá la descripción de 2-3 líneas tal cual figura en la foto 4.",
-      modoDeUso: "", // TODO: confirmar con la clienta — modo de uso, si la foto lo indica
-      imagen: "/images/producto-4.jpg",
-      galeria: [],
-      variantes: [], // TODO: confirmar con la clienta — cargar tamaños si la foto 4 los muestra
+      // TODO: confirmar con la clienta — la foto muestra 3 unidades que
+      // podrían ser 3 sabores/tonos distintos; el envase no trae una
+      // etiqueta que los distinga. Si son variantes, cargarlas acá.
+      variantes: [],
     },
   ],
 
