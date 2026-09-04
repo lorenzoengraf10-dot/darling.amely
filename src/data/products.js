@@ -212,7 +212,7 @@ export const PRODUCTOS = {
       descripcion: "Polvo suelto (loose powder) PINK21, tono banana.",
       modoDeUso: "",
       imagen: "/images/producto-10-banana-loose-powder.jpg",
-      galeria: [],
+      galeria: ["/images/producto-10-banana-loose-powder-2.jpg"],
       variantes: [],
     },
   ],
