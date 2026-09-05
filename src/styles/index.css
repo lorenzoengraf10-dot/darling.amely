@@ -879,8 +879,8 @@ p {
 }
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 .testimonial-item {
   display: block;
@@ -908,6 +908,30 @@ p {
   color: #fff;
   font-size: 0.8rem;
   font-weight: 600;
+}
+.review-card {
+  background: var(--bg-elev);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.review-stars {
+  color: var(--gold);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+}
+.review-texto {
+  color: var(--ink-dim);
+  line-height: 1.6;
+  font-style: italic;
+}
+.review-autor {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 0.9rem;
 }
 
 /* ------------------------------------------------------------
@@ -1079,7 +1103,7 @@ p {
     grid-template-columns: repeat(3, 1fr);
   }
   .testimonials-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   .hero {
     flex-direction: row-reverse;

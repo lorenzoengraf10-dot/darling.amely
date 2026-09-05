@@ -278,11 +278,43 @@ export const PRODUCTOS = {
 
 /* ----------------------------------------------------------------
    4. CLIENTAS (testimonios)
-   Fotos reales de clientas usando productos de Darling Amely,
-   etiquetadas en Instagram. Para agregar una nueva, subí la foto a
-   public/images/ y sumá un objeto { imagen, autor } acá abajo (el
-   "autor" es el usuario de Instagram, con o sin @).
-   Mientras esta lista esté vacía ([]), la sección "Nuestras clientas"
-   no se muestra en el sitio — todavía no llegaron fotos.
+   ----------------------------------------------------------------
+   Cada entrada puede ser:
+   - Una reseña de texto:  { autor, texto, estrellas }
+   - Una foto de Instagram: { autor, imagen }  (el "autor" es el
+     usuario de Instagram, con o sin @)
+   Mientras esta lista esté vacía ([]), la sección no se muestra.
+
+   ⚠️  Las 4 reseñas de acá abajo son FICTICIAS — la clienta pidió
+   contenido de ejemplo ("muy recomendado" y cosas así) para ver cómo
+   queda la sección, sin tener fotos ni reseñas reales todavía. Nombre,
+   texto y estrellas son inventados, no corresponden a clientas reales.
+
+   Ojo antes de dejarlas así de forma permanente: mostrar reseñas
+   inventadas como si fueran de clientas reales en un sitio de venta
+   real es publicidad engañosa (testimonios falsos), más allá de que
+   acá sea una demo. Reemplazar estas 4 por reseñas reales (o borrarlas
+   y dejar el array vacío) antes de que este sitio sea el definitivo.
    ---------------------------------------------------------------- */
-export const TESTIMONIOS = [];
+export const TESTIMONIOS = [
+  {
+    autor: "Valentina R.", // FICTICIO
+    texto: "Llegó todo perfecto y súper rápido. ¡Los colores del labial son hermosos!",
+    estrellas: 5,
+  },
+  {
+    autor: "Camila T.", // FICTICIO
+    texto: "Muy recomendado. La atención por WhatsApp es divina, te asesoran en todo.",
+    estrellas: 5,
+  },
+  {
+    autor: "Sofía M.", // FICTICIO
+    texto: "Excelente calidad, mejor de lo que esperaba. Ya hice mi segundo pedido.",
+    estrellas: 5,
+  },
+  {
+    autor: "Agustina L.", // FICTICIO
+    texto: "Pedí envío a otra provincia y llegó en tiempo y forma, todo bien embalado.",
+    estrellas: 5,
+  },
+];
