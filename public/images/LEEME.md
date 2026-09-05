@@ -13,14 +13,11 @@ producto-7-pink-fix-eyebrow-gel.jpg
 producto-8-cepillo-paddle.jpg
 producto-9-labial-liquido-mate.jpg
 producto-10-banana-loose-powder.jpg
+logo-darling-amely.png
 ```
 
 ## Todavía falta
 
-- `logo-darling-amely.png` — el logo/isotipo de la marca. Mientras no
-  esté, el sitio muestra el nombre "Darling Amely" en texto estilizado
-  en vez del logo (fallback automático — con solo subir el archivo con
-  ese nombre exacto, aparece solo, sin tocar código).
 - La captura del perfil de Instagram con la paleta de colores de la
   marca, para reemplazar los colores provisorios de
   `src/styles/index.css` (están marcados con un TODO grande al

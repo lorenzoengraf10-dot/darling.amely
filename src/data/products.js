@@ -17,9 +17,8 @@
    ----------------------------------------------------------------
    Se cargaron los 10 productos reales a partir de las fotos recibidas
    (nombre, marca y descripción tal como se leen en cada foto/envase).
+   El logo real ya está cargado (public/images/logo-darling-amely.png).
    Todavía faltan, porque no llegaron adjuntas a ninguna sesión:
-   - El logo de la marca (public/images/LEEME.md) — el sitio muestra
-     un wordmark de texto mientras tanto.
    - La captura de Instagram con la paleta de colores real — la paleta
      de src/styles/index.css sigue siendo provisoria (ver el comentario
      al principio de ese archivo).
