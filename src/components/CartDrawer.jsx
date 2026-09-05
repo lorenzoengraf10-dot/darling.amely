@@ -4,11 +4,12 @@ import { CloseIcon } from "./icons.jsx";
 import { CONFIG } from "../data/products.js";
 import { useCart } from "../context/CartContext.jsx";
 import { useToast } from "../context/ToastContext.jsx";
-import { fotoDeItem } from "../utils/catalog.js";
+import { fotoDeItem, precioDeItem } from "../utils/catalog.js";
 import { waLink, mensajePedidoCarrito } from "../utils/whatsapp.js";
+import { money } from "../utils/format.js";
 
 export default function CartDrawer() {
-  const { items, isOpen, closeCart, setItemQty, clearCart } = useCart();
+  const { items, total, isOpen, closeCart, setItemQty, clearCart } = useCart();
   const { showToast } = useToast();
 
   useEffect(() => {
@@ -30,8 +31,9 @@ export default function CartDrawer() {
       nombre: item.product.nombre,
       variante: item.variante,
       cantidad: item.cantidad,
+      precio: precioDeItem(item.product, item.variante),
     }));
-    window.open(waLink(CONFIG.whatsapp, mensajePedidoCarrito(CONFIG.nombre, lineas)), "_blank");
+    window.open(waLink(CONFIG.whatsapp, mensajePedidoCarrito(CONFIG.nombre, lineas, total)), "_blank");
     clearCart();
     closeCart();
     showToast("¡Pedido enviado! Te vamos a confirmar por WhatsApp.");
@@ -66,6 +68,9 @@ export default function CartDrawer() {
                       </div>
                       <div className="cart-item-info">
                         <span className="cart-item-name">{nombreConVariante}</span>
+                        <span className="cart-item-price">
+                          {money(precioDeItem(item.product, item.variante) * item.cantidad)}
+                        </span>
                         <div className="qty-stepper qty-stepper-sm">
                           <button
                             type="button"
@@ -99,6 +104,10 @@ export default function CartDrawer() {
                 })}
               </div>
               <div className="cart-footer">
+                <div className="cart-total-row">
+                  <span>Total</span>
+                  <strong>{money(total)}</strong>
+                </div>
                 {CONFIG.whatsappVisible && CONFIG.whatsapp ? (
                   <button type="button" className="btn btn-whatsapp btn-block" onClick={enviarPedido}>
                     Enviar pedido por WhatsApp

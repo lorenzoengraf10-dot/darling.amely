@@ -1,3 +1,5 @@
+import { money } from "./format.js";
+
 export function waLink(numero, texto) {
   return `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
 }
@@ -11,14 +13,16 @@ export function mensajeConsultaProducto(nombreNegocio, product, varianteNombre) 
 }
 
 /* Mensaje agregado del carrito: una línea por producto (con su tono, si
-   tiene) y la cantidad. No incluye precios — el catálogo no los muestra,
-   se coordinan directo por WhatsApp. */
-export function mensajePedidoCarrito(nombreNegocio, items) {
-  const lineas = [`Hola ${nombreNegocio}! Quiero consultar por estos productos:`, ""];
+   tiene), la cantidad y el subtotal, más el total al final. */
+export function mensajePedidoCarrito(nombreNegocio, items, total) {
+  const lineas = [`Hola ${nombreNegocio}! Quiero hacer este pedido:`, ""];
   items.forEach((item, i) => {
     const nombreConVariante = item.variante ? `${item.nombre} (${item.variante})` : item.nombre;
-    lineas.push(`${i + 1}. ${nombreConVariante} x${item.cantidad}`);
+    const subtotalTxt = item.precio != null ? money(item.precio * item.cantidad) : "a consultar";
+    lineas.push(`${i + 1}. ${nombreConVariante} x${item.cantidad} — ${subtotalTxt}`);
   });
+  lineas.push("");
+  lineas.push(`Total: ${money(total)}`);
   lineas.push("");
   lineas.push("¡Gracias!");
   return lineas.join("\n");

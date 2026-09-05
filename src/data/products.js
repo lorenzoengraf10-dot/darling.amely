@@ -28,13 +28,19 @@
    Quedan marcados "TODO: confirmar con la clienta" un puñado de datos
    puntuales que no se leían con claridad en la foto (ver cada producto).
 
+   ⚠️  Los "precio" de acá abajo son FICTICIOS — los pidió la clienta para
+   poder probar el carrito (subtotales, total, mensaje de WhatsApp) antes
+   de tener la lista de precios real. Reemplazar cada uno por el precio
+   real cuando esté disponible; el número en sí no representa nada real
+   todavía.
+
    ----------------------------------------------------------------
    CÓMO AGREGAR UN PRODUCTO NUEVO
    ----------------------------------------------------------------
    1. Copiá un producto que ya esté cargado (desde la { hasta la }, con
       la coma al final) y pegalo antes del corchete de cierre "]" de la
       categoría que corresponda dentro de PRODUCTOS.
-   2. Cambiá nombre, categoria, subcategoria, descripcion y modoDeUso.
+   2. Cambiá nombre, categoria, subcategoria, descripcion, precio y modoDeUso.
    3. Para la foto: subí el archivo a public/images/ y poné acá la ruta,
       por ejemplo: imagen: "/images/mi-foto.jpg"
    4. Si el mismo producto viene en más de un tono/tamaño, agregá
@@ -44,7 +50,8 @@
         { nombre: "Tono Rosa", imagen: "/images/mi-foto-rosa.jpg" },
       ]
       (el "imagen" de cada variante es opcional — si no la ponés, se usa
-      la foto general del producto).
+      la foto general del producto. Si un tono cuesta distinto, agregale
+      "precio" a esa variante puntual y ese va a ser el que se use).
 
    Los 140+ productos que hoy están cargados en Tiendanube se migran
    agregando más objetos acá, categoría por categoría, con este mismo
@@ -117,6 +124,7 @@ export const PRODUCTOS = {
       categoria: "maquillaje",
       subcategoria: "Labios",
       descripcion: "Combo de labios PINK21: labial líquido The Lip Glaze + delineador Lip Liner Matte (tono 07), en tono dulce de leche.",
+      precio: 8500, // FICTICIO
       modoDeUso: "",
       imagen: "/images/producto-3-lip-combo-dulce-de-leche.jpg",
       galeria: [],
@@ -127,6 +135,7 @@ export const PRODUCTOS = {
       categoria: "maquillaje",
       subcategoria: "Rostro",
       descripcion: "Polvo compacto matificante resistente al agua, línea Last Touch de PINK21.",
+      precio: 6000, // FICTICIO
       modoDeUso: "",
       imagen: "/images/producto-2-last-touch-pink21.jpg",
       galeria: [],
@@ -144,6 +153,7 @@ export const PRODUCTOS = {
       categoria: "maquillaje",
       subcategoria: "Rostro",
       descripcion: "Compacto redondo ilustrado de la línea Gege Bear (osito, fresa, corazón, huellitas) con el detalle \"Lucky\".",
+      precio: 5000, // FICTICIO
       modoDeUso: "",
       imagen: "/images/producto-1-gege-bear.jpg",
       galeria: [],
@@ -154,6 +164,7 @@ export const PRODUCTOS = {
       categoria: "maquillaje",
       subcategoria: "Cejas",
       descripcion: "Estuche para peinar cejas de la línea Style Brow de TEI, con cepillo angulado incluido. Presentación edición sandía.",
+      precio: 4500, // FICTICIO
       modoDeUso: "",
       imagen: "/images/producto-5-style-tei-brow.jpg",
       galeria: [],
@@ -164,6 +175,7 @@ export const PRODUCTOS = {
       categoria: "maquillaje",
       subcategoria: "Labios",
       descripcion: "Lápiz labial waterproof de Iman of Noble: hidratante, larga duración, disimula líneas de expresión y repara los labios. 6 g.",
+      precio: 3800, // FICTICIO
       modoDeUso: "",
       imagen: "/images/producto-6-iman-noble-lip-stick.jpg",
       galeria: [],
@@ -180,6 +192,7 @@ export const PRODUCTOS = {
       categoria: "maquillaje",
       subcategoria: "Cejas",
       descripcion: "Gel para cejas PINK21, línea Pink Fix.",
+      precio: 4200, // FICTICIO
       modoDeUso: "",
       imagen: "/images/producto-7-pink-fix-eyebrow-gel.jpg",
       galeria: [],
@@ -193,6 +206,7 @@ export const PRODUCTOS = {
       categoria: "maquillaje",
       subcategoria: "Labios",
       descripcion: "Labial líquido mate con tapa acolchada dorada.",
+      precio: 5500, // FICTICIO
       modoDeUso: "",
       imagen: "/images/producto-9-labial-liquido-mate.jpg",
       galeria: [],
@@ -210,6 +224,7 @@ export const PRODUCTOS = {
       categoria: "maquillaje",
       subcategoria: "Rostro",
       descripcion: "Polvo suelto (loose powder) PINK21, tono banana.",
+      precio: 7000, // FICTICIO
       modoDeUso: "",
       imagen: "/images/producto-10-banana-loose-powder.jpg",
       galeria: ["/images/producto-10-banana-loose-powder-2.jpg"],
@@ -227,6 +242,7 @@ export const PRODUCTOS = {
       categoria: "skincare",
       subcategoria: "Labios",
       descripcion: "Bálsamo labial en envase con forma de osito, marca TEI.",
+      precio: 2500, // FICTICIO
       modoDeUso: "",
       imagen: "/images/producto-4-tei-bear-lip-balm.jpg",
       galeria: [],
@@ -249,6 +265,7 @@ export const PRODUCTOS = {
       categoria: "accesorios",
       subcategoria: "Cabello",
       descripcion: "Cepillo paddle con cerdas de bolita y mango con orificio para colgar.",
+      precio: 3200, // FICTICIO
       modoDeUso: "",
       imagen: "/images/producto-8-cepillo-paddle.jpg",
       galeria: [],
@@ -257,3 +274,15 @@ export const PRODUCTOS = {
   ],
 
 };
+
+
+/* ----------------------------------------------------------------
+   4. CLIENTAS (testimonios)
+   Fotos reales de clientas usando productos de Darling Amely,
+   etiquetadas en Instagram. Para agregar una nueva, subí la foto a
+   public/images/ y sumá un objeto { imagen, autor } acá abajo (el
+   "autor" es el usuario de Instagram, con o sin @).
+   Mientras esta lista esté vacía ([]), la sección "Nuestras clientas"
+   no se muestra en el sitio — todavía no llegaron fotos.
+   ---------------------------------------------------------------- */
+export const TESTIMONIOS = [];

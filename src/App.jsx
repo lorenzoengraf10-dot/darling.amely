@@ -7,6 +7,7 @@ import CategoryNav from "./components/CategoryNav.jsx";
 import ProductGrid from "./components/ProductGrid.jsx";
 import ProductModal from "./components/ProductModal.jsx";
 import CartDrawer from "./components/CartDrawer.jsx";
+import Testimonials from "./components/Testimonials.jsx";
 import TrustStrip from "./components/TrustStrip.jsx";
 import Footer from "./components/Footer.jsx";
 import WhatsAppFloat from "./components/WhatsAppFloat.jsx";
@@ -54,6 +55,7 @@ export default function App() {
           <Hero />
           <CategoryNav activeCategory={activeCategory} onChange={setActiveCategory} />
           <ProductGrid activeCategory={activeCategory} onOpenProduct={openProduct} />
+          <Testimonials />
           <TrustStrip />
         </main>
         <Footer onSelectCategory={selectCategory} />

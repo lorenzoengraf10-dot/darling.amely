@@ -3,6 +3,8 @@ import { CONFIG } from "../data/products.js";
 import { waLink, mensajeConsultaProducto } from "../utils/whatsapp.js";
 import { useCart } from "../context/CartContext.jsx";
 import { useToast } from "../context/ToastContext.jsx";
+import { precioDesde, variantesConPrecioDistinto } from "../utils/catalog.js";
+import { money } from "../utils/format.js";
 
 const MAX_VARIANTES_EN_TARJETA = 4;
 
@@ -11,6 +13,7 @@ export default function ProductCard({ entry, onOpen }) {
   const { addItem } = useCart();
   const { showToast } = useToast();
   const tieneVariantes = Boolean(product.variantes?.length);
+  const precioBase = precioDesde(product);
 
   function handleAgregar() {
     // Con variantes (tono/tamaño) hay que elegir una primero — se abre la
@@ -41,6 +44,13 @@ export default function ProductCard({ entry, onOpen }) {
             {product.nombre}
           </button>
         </h3>
+
+        {precioBase != null && (
+          <span className="card-price">
+            {variantesConPrecioDistinto(product) ? "Desde " : ""}
+            {money(precioBase)}
+          </span>
+        )}
 
         {product.descripcion && <p className="card-desc">{product.descripcion}</p>}
 

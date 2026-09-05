@@ -1,5 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
-import { findEntry } from "../utils/catalog.js";
+import { findEntry, precioDeItem } from "../utils/catalog.js";
 
 const CART_KEY = "darling_amely_cart_v1";
 const CartContext = createContext(null);
@@ -14,9 +14,8 @@ function loadCart() {
 }
 
 /* Carrito 100% client-side (sin backend), persistido en localStorage.
-   Cada ítem es { catKey, slug, cantidad, variante }. No maneja precios:
-   el catálogo no los muestra, el pedido se termina de cerrar por
-   WhatsApp — ver src/utils/whatsapp.js. */
+   Cada ítem es { catKey, slug, cantidad, variante }. El pedido se
+   termina de cerrar por WhatsApp — ver src/utils/whatsapp.js. */
 export function CartProvider({ children }) {
   const [cart, setCart] = useState(loadCart);
   const [isOpen, setIsOpen] = useState(false);
@@ -87,9 +86,15 @@ export function CartProvider({ children }) {
     [cart]
   );
 
+  const total = useMemo(
+    () => items.reduce((sum, i) => sum + (precioDeItem(i.product, i.variante) || 0) * i.cantidad, 0),
+    [items]
+  );
+
   const value = {
     items,
     count,
+    total,
     addItem,
     setItemQty,
     removeItem,

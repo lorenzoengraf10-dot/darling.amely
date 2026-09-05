@@ -31,3 +31,31 @@ export function fotoDeItem(product, varianteNombre) {
   }
   return product.imagen;
 }
+
+/* Precio real de un producto según el tono/tamaño elegido: si esa
+   variante puntual trae su propio "precio", se usa ese; si no, el precio
+   general del producto. */
+export function precioDeItem(product, varianteNombre) {
+  if (varianteNombre && product.variantes?.length) {
+    const variante = product.variantes.find((v) => v.nombre === varianteNombre);
+    if (variante?.precio != null) return variante.precio;
+  }
+  return product.precio;
+}
+
+/* Para la tarjeta del catálogo, antes de elegir un tono: el precio más
+   bajo entre las variantes (o el precio general si ninguna variante trae
+   uno propio). */
+export function precioDesde(product) {
+  if (!product.variantes?.length) return product.precio;
+  const precios = product.variantes
+    .map((v) => (v.precio != null ? v.precio : product.precio))
+    .filter((p) => p != null);
+  return precios.length ? Math.min(...precios) : product.precio;
+}
+
+export function variantesConPrecioDistinto(product) {
+  if (!product.variantes?.length) return false;
+  const precios = product.variantes.map((v) => (v.precio != null ? v.precio : product.precio));
+  return precios.some((p) => p !== precios[0]);
+}

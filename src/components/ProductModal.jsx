@@ -2,10 +2,11 @@ import { useEffect, useMemo, useState } from "react";
 import ProductPhoto from "./ProductPhoto.jsx";
 import { ChevronIcon, CloseIcon, WhatsAppIcon } from "./icons.jsx";
 import { CONFIG } from "../data/products.js";
-import { findEntry } from "../utils/catalog.js";
+import { findEntry, precioDeItem } from "../utils/catalog.js";
 import { waLink, mensajeConsultaProducto } from "../utils/whatsapp.js";
 import { useCart } from "../context/CartContext.jsx";
 import { useToast } from "../context/ToastContext.jsx";
+import { money } from "../utils/format.js";
 
 /* Ficha de producto ampliada: galería de fotos, selector de tono/tamaño,
    modo de uso, cantidad y las 3 acciones (agregar al pedido, consultar
@@ -72,6 +73,7 @@ export default function ProductModal({ catKey, slug, varianteInicial, onClose })
   }
 
   const nombreVariante = varianteObj?.nombre;
+  const precio = precioDeItem(product, nombreVariante);
   const waTexto = mensajeConsultaProducto(CONFIG.nombre, product, nombreVariante);
   const todasSonTono = variantes?.every((v) => /tono|color/i.test(v.nombre));
 
@@ -142,6 +144,7 @@ export default function ProductModal({ catKey, slug, varianteInicial, onClose })
           <span className="card-cat">{catNombre}</span>
           <h2 className="modal-nombre">{product.nombre}</h2>
           {product.subcategoria && <p className="modal-subcat">{product.subcategoria}</p>}
+          {precio != null && <span className="modal-precio">{money(precio)}</span>}
 
           {variantes && (
             <div className="modal-variant-row">
