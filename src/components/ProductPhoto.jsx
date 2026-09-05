@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { assetUrl } from "../utils/assetUrl.js";
 
 /* Devuelve la <img> o, si no hay ruta cargada todavía (variantes.imagen
    vacío) o el archivo no existe (foto real aún no subida a
@@ -22,7 +23,7 @@ export default function ProductPhoto({ src, alt, className = "" }) {
 
   return (
     <img
-      src={src}
+      src={assetUrl(src)}
       alt={alt}
       className={`photo-img ${className}`}
       loading="lazy"

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CONFIG } from "../data/products.js";
+import { assetUrl } from "../utils/assetUrl.js";
 
 /* TODO: confirmar con la clienta — reemplazar por el isotipo/wordmark real
    (la foto del logo no llegó adjunta a esta sesión). En cuanto se suba
@@ -15,7 +16,7 @@ export default function Logo({ className = "" }) {
 
   return (
     <img
-      src="/images/logo-darling-amely.png"
+      src={assetUrl("/images/logo-darling-amely.png")}
       alt={CONFIG.nombre}
       className={`brand-logo-img ${className}`}
       width="48"
